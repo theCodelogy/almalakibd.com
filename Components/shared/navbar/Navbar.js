@@ -4,6 +4,7 @@ import Image from "next/image";
 import { FiSearch } from "react-icons/fi";
 import { FaRegUser } from "react-icons/fa";
 import { HiOutlineShoppingCart } from "react-icons/hi";
+import { GrCart } from "react-icons/gr";
 
 // Import the image
 import img from "../../../public/al-malaki-white.png";
@@ -11,14 +12,14 @@ import Link from "next/link";
 
 // Navigation links array
 const navLinks = [
-  { title: "Smartphones", href: "#" },
-  { title: "Feature Phones", href: "#" },
-  { title: "Cases & Covers", href: "#" },
-  { title: "Chargers", href: "#" },
-  { title: "Samsung", href: "#" },
-  { title: "Google", href: "#" },
-  { title: "Huawei", href: "#" },
-  { title: "Apple", href: "#" },
+  { title: "Smartphones", href: "category" },
+  { title: "Feature Phones", href: "category" },
+  { title: "Cases & Covers", href: "category" },
+  { title: "Chargers", href: "category" },
+  { title: "Samsung", href: "category" },
+  { title: "Google", href: "category" },
+  { title: "Huawei", href: "category" },
+  { title: "Apple", href: "category" },
 ];
 
 const Navbar = () => {
@@ -28,15 +29,15 @@ const Navbar = () => {
   return (
     <header className="flex flex-col justify-between">
       {/* Header content */}
-      <div className="header-content bg-black text-white flex justify-between items-center">
+      <div className="header-content bg-black text-white flex justify-between items-center p-1">
         {/* Logo */}
-        <div className="header-logo flex-1">
+        <Link href={"/"} className="header-logo flex-1">
           <Image src={img} height={90} width={90} alt="logo" />
-        </div>
+        </Link>
 
         {/* Search bar */}
         <div className="flex items-center gap-1 p-1 rounded-lg bg-white flex-1">
-          <FiSearch className="text-xl ml-1 text-black" />
+          <FiSearch className="text-xl text-black ml-2" />
           <input
             className="p-2 outline-none text-black"
             placeholder="Search here..."
@@ -45,13 +46,11 @@ const Navbar = () => {
 
         {/* User Sign In and Cart */}
         <div className="flex justify-end flex-1 gap-3">
-          <div className="flex gap-2 items-center">
-            <h3 className="text-xl font-semibold">Sign In</h3>
-            <FaRegUser className="text-white text-lg" />
+          <div className="bg-slate-700 p-2 rounded-lg group hover:bg-white transition-all duration-200 ease-in">
+            <FaRegUser className="text-white text-lg group-hover:text-black" />
           </div>
-          <div className="flex gap-2 items-center pr-2">
-            <h3 className="text-xl font-semibold">Cart</h3>
-            <HiOutlineShoppingCart className="text-lg" />
+          <div className="bg-slate-700 p-2 rounded-lg group hover:bg-white transition-all duration-200 ease-in">
+            <GrCart className="text-white text-lg group-hover:text-black" />
           </div>
         </div>
 
@@ -69,7 +68,7 @@ const Navbar = () => {
       </div>
 
       {/* Navigation */}
-      <nav className="bg-white flex drop-shadow-lg mb-3 p-3 justify-center">
+      <nav className="bg-white flex drop-shadow-md mb-3 p-3 justify-center">
         <ul className="flex gap-4">
           {navLinks.map((link, index) => (
             <li key={index}>
